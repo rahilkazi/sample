@@ -1,0 +1,18 @@
+[linux]
+192.168.13.131 mountpoint="/dev/sd1"
+[windows]
+192.168.13.136 mountpoint="/dev/sd2"
+[infra:children]
+linux
+windows
+
+[windows:vars]
+ansible_user=Administrator
+ansible_password=admin@123
+ansible_port=5986
+ansible_connection=winrm
+ansible_winrm_server_cert_validation=ignore
+
+[infra:vars]
+mountpoint="/dev/sd3"
+
